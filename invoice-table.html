@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      td,th {
+        border: 1px solid #2c2929;
+        padding: 10px;
+        max-width: 200px;
+        word-wrap: break-word;
+      }
+      th, .bg{
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td colspan="2"><b>Invoice # 123</b></td>
+        <td colspan="2">8 August 2024</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <b>Pay To:</b> <br />
+          ABC Pvt Ltd. <br />
+          123 MG Road <br />
+          Bengaluru,KA 560001
+        </td>
+        <td colspan="2">
+          <b>Customer:</b> <br />
+          John Doe <br />
+          456 Park Street <br />
+          Kolkata,WB 700016
+        </td>
+      </tr>
+
+      <tr>
+        <th>Item </th>
+        <th>Qty</th>
+        <th>Unit Price</th>
+        <th>Cost</th>
+
+      </tr>
+
+      <tr>
+        <td>Pens</td>
+        <td>100</td>
+        <td>5.00</td>
+        <td>500.00</td>
+      </tr>
+      <tr>
+        <td>Calculators</td>
+        <td>8</td>
+        <td>100.00</td>
+        <td>800.00</td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <b>Sub Total</b>
+        </td>
+        <td>1300.00</td>
+      </tr>
+      <tr>
+        <td colspan="2" class="bg"><b>Tax</b></td>
+        <td>5%</td>
+        <td>65.00</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="bg">
+          <b>Grand Total</b>
+        </td>
+        <td>1365.00</td>
+      </tr>
+    </table>
+  </body>
+</html>
