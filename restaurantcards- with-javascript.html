@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Listing</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .restaurant-cards {
+        margin: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+      }
+
+      .restaurant-card {
+        width: calc(25% - 10px);
+        border-radius: 10px;
+        box-shadow: 10px 10px 40px rgba(128, 128, 128, 0.4);
+      }
+      .restaurant-image {
+        position: relative;
+      }
+      .restaurant-image .discount {
+        position: absolute;
+        bottom: 10px;
+        left: 5px;
+        background-color: #e83940;
+        color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+      }
+      .restaurant-image img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+      }
+      .restaurant-details {
+        padding: 10px;
+        color: #696969;
+        font-size: 14px;
+      }
+
+      .group {
+        display: flex;
+        justify-content: space-between;
+        margin: 5px 0;
+      }
+      .restaurant-name {
+        font-weight: 600;
+        color: #000;
+      }
+
+      .rating {
+        background-color: #249634;
+        color: #fff;
+        font-weight: 700;
+        padding: 5px;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      @media (max-width: 780px) {
+        .restaurant-card {
+          width: 33.3%;
+        }
+      }
+      @media (max-width: 580px) {
+        .restaurant-card {
+          width: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="restaurant-cards" id="restaurant-cards"></div>
+
+    <script>
+      const restaurants = [
+        {
+          name: "Domino's Pizza",
+          rating: 4.6,
+          cuisine: "Pizza, Fast Food, Desserts",
+          costForTwo: 400,
+          location: "Jubille Hills, Hyderabad",
+          distance: "3.7KM",
+          discount: "40% OFF Upto &#8377; 100",
+          image: "https://b.zmtcdn.com/data/pictures/9/20942359/79d639339320287468131c420ab1c000.jpg?fit=around|771.75:416.25&crop=771.75:416.25;*,*"
+        },
+        {
+          name: "KFC",
+          rating: 4.4,
+          cuisine: "Fried Chicken, Fast Food",
+          costForTwo: 300,
+          location: "Banjara Hills, Hyderabad",
+          distance: "2.7KM",
+          discount: "30% OFF Upto &#8377; 150",
+          image: "https://b.zmtcdn.com/data/pictures/chains/4/2800014/50fbb9dfc82d5ee2b98046bf3fbed7c1.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*"
+        },
+        {
+          name: "Burger King",
+          rating: 4.2,
+          cuisine: "Burgers, Fast Food",
+          costForTwo: 300,
+          location: "Madhapur, Hyderabad",
+          distance: "5.1KM",
+          discount: "25% OFF Upto &#8377; 75",
+          image: "https://b.zmtcdn.com/data/pictures/chains/2/19082182/c8008523810583087401ff292c1763a3.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*"
+        },
+        {
+          name: "Barbeque Nation",
+          rating: 4.7,
+          cuisine: "BBQ, Buffet",
+          costForTwo: 800,
+          location: "Begumpet, Hyderabad",
+          distance: "4.2KM",
+          discount: "15% OFF Upto &#8377; 200",
+          image: "https://b.zmtcdn.com/data/pictures/chains/6/2800856/a9b023aacfd87c1074966fc4c4d31146_o2_featured_v2.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*"
+        }
+      ];
+
+      const restaurantCardsContainer = document.getElementById("restaurant-cards");
+
+      restaurants.forEach((restaurant) => {
+        const card = document.createElement("div");
+        card.className = "restaurant-card";
+        card.innerHTML = `
+          <div class="restaurant-image">
+            <img src="${restaurant.image}" alt="${restaurant.name}">
+            <div class="discount">${restaurant.discount}</div>
+          </div>
+          <div class="restaurant-details">
+            <div class="group">
+              <p class="restaurant-name">${restaurant.name}</p>
+              <p class="rating">${restaurant.rating} &#9733;</p> <!-- Star symbol -->
+            </div>
+            <div class="group">
+              <p>${restaurant.cuisine}</p>
+              <p>&#8377; ${restaurant.costForTwo} for two</p> <!-- Rupee symbol -->
+            </div>
+            <div class="group">
+              <p>${restaurant.location}</p>
+              <p>${restaurant.distance}</p>
+            </div>
+          </div>
+        `;
+        restaurantCardsContainer.appendChild(card);
+      });
+    </script>
+  </body>
+</html>
